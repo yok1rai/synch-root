@@ -19,6 +19,7 @@
 - removed section added to change logs to record the removed functions
 - Version numbers are now inside code blocks
 - separated the current status and change logs with a horizontal rule
+- tooltip added to top of the current status section
 
 ### Changed
 
