@@ -4,7 +4,7 @@
 
 \[[MAJOR](# "breaking changes"):[MINOR](# "new features, no break"):[PATCH](# "bug fixes, small tweaks"):[REVISION](# "very small fixes that no one asked for")\]
 
-**Latest Version:** `0.2.0.0`
+**Latest Version:** `0.1.2.0`
 
 **Latest Release:** `N/A`
 
