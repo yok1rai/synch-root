@@ -14,7 +14,7 @@ Safely sets up and enters a chroot environment by bind-mounting essential Linux 
 
 [Folder Structure](#folder-structure)
 
-[How do program actually works](#how-do-program-actuall-works)
+[How do program actually works](#how-the-program-actual-works)
 
 [LICENSE](#license)
 
@@ -139,7 +139,7 @@ sync-root
 ```
 ---
 
-## How do program actual works
+## How the program actual works
 
 sync-root is a small Bash utility that prepares a target directory to behave like a real Linux root filesystem and then enters it using chroot
 

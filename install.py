@@ -28,7 +28,7 @@ try:
     DEST.chmod(0o755)
     print(f"{SCRIPT_NAME} installed to {DEST}")
 except PermissionError:
-    print("Error: Permission denied. Try running with root priviliges")
+    print("Error: Permission denied. Try running with root privileges")
     sys.exit(1)
 
 print(f"Installation complete. You can now run '{SCRIPT_NAME}' from anywhere.")
