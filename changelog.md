@@ -2,13 +2,54 @@
 
 ## Current Status
 
-**Latest Version:** `0.1.1`
+\[[MAJOR](# "breaking changes"):[MINOR](# "new features, no break"):[PATCH](# "bug fixes, small tweaks"):[REVISION](# "very small fixes that no one asked for")\]
+
+**Latest Version:** `0.1.1.1`
 
 **Latest Release:** `N/A`
 
 **Stable Release:** `N/A`
 
-## [0.1.0] - 2026-02-01
+---
+
+## [`0.1.1.1`] - 2026-02-01
+
+### Added
+
+- removed section added to change logs to record the removed functions
+- Version numbers are now inside code blocks
+- separated the current status and change logs with a horizontal rule
+
+### Changed
+
+- newer versions is now at top of the change logs
+
+### Removed
+
+- N/A
+
+### Fixed
+
+- N/A
+
+
+## [`0.1.1`] - 2026-02-01
+
+### Added
+
+- readme.md file is added for the first time
+
+### Changed
+
+- Error code for the third Prerequisite has changed from 99 to 1
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+## [`0.1.0`] - 2026-02-01
 
 ### Added
 
@@ -20,21 +61,9 @@
 ### Changed
 - N/A
 
-### Fixed
+### Removed
 - N/A
 
-
-## [0.1.1] - 2026-02-01
-
-### Added
-
-- readme.md file is added for the first time
-
-### Changed
-
-- Error code for the third Prerequisite has changed from 99 to 1
-
 ### Fixed
-
 - N/A
 
