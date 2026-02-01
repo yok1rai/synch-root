@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 target="$1"
 shell=${2:-/bin/bash}
@@ -14,21 +14,21 @@ resolv="/etc/resolv.conf"
 # First Stage
 
 # Check prerequisites
-echo "checking prerequisites [1/3]" 
+echo "checking prerequisites [1/3]"
 
-if [[ -z "$target" ]]; then 
+if [[ -z "$target" ]]; then
     echo "Error: First argument cannot be empty.. aborting"
     exit 1
 fi
 
-if [[ ! -d "$target" ]]; then 
+if [[ ! -d "$target" ]]; then
     echo "Error: You must enter a directory.. aborting"
     exit 1
-fi 
+fi
 
 if [[ "$(realpath /)" == "$(realpath "$target")" ]]; then
     echo "Error: Target is the live root filesystem. Aborting for safety."
-    exit 99
+    exit 1
 fi
 
 
@@ -37,9 +37,9 @@ if [[ ! -x "$target$shell" ]]; then
     exit 1
 fi
 
-if [[ $EUID != 0 ]]; then 
+if [[ $EUID != 0 ]]; then
     echo "Error: You must run this as root.. aborting"
-    exit 1 
+    exit 1
 fi
 
 echo "Success: $target is ready to be new root"
@@ -50,50 +50,50 @@ echo "Binding folders [2/3]"
 # Ensure mount points exist
 mkdir -p "$target/$proc" "$target/$sys" "$target/$dev" "$target/$pts" "$target/$shm" "$target/$run"
 
-if [[ ! -d "$proc" ]]; then 
+if [[ ! -d "$proc" ]]; then
     echo "Error: $proc not found.. aborting"
     exit 2
-fi 
+fi
 
 mount --rbind "$proc" "$target/$proc"
 echo "$proc mounted [1/7]"
-        
-if [[ ! -d "$sys" ]]; then 
+
+if [[ ! -d "$sys" ]]; then
     echo "Error: $sys not found.. aborting"
     exit 2
-fi 
+fi
 
 mount --rbind "$sys" "$target/$sys"
 echo "$sys mounted [2/7]"
 
-if [[ ! -d "$dev" ]]; then 
+if [[ ! -d "$dev" ]]; then
     echo "Error: $dev not found.. aborting"
     exit 2
-fi 
+fi
 
 mount --rbind "$dev" "$target/$dev"
 echo "$dev mounted [3/7]"
 
-if [[ ! -d "$pts" ]]; then 
+if [[ ! -d "$pts" ]]; then
     echo "Error: $pts not found.. aborting"
-    exit 2 
-fi 
+    exit 2
+fi
 
 mount --bind "$pts" "$target/$pts"
 echo "$pts mounted [4/7]"
 
-if [[ ! -d "$shm" ]]; then 
+if [[ ! -d "$shm" ]]; then
     echo "Error: $shm not found"
-    exit 2 
+    exit 2
 fi
 
 mount --bind "$shm" "$target/$shm"
 echo "$shm mounted [5/7]"
 
-if [[ ! -d "$run" ]]; then 
+if [[ ! -d "$run" ]]; then
     echo "Error: $run not found"
     exit 2
-fi 
+fi
 
 mount --bind "$run" "$target/$run"
 echo "$run mounted [6/7]"
@@ -106,27 +106,27 @@ case "$3" in
         ;;
 
     "")
-        if [[ ! -f "$resolv" ]]; then 
+        if [[ ! f "$resolv" ]]; then
             echo "Error: $resolv not found"
             exit 2
-        fi 
+        fi
 
         cp --dereference "$resolv" "$target/$resolv"
         echo "$resolv copied [7/7]"
 
         ;;
-    
-    *) 
+
+    *)
         echo "Error: Invalid argument"
         exit 3
 esac
 
-# Third stage 
+# Third stage
 # change root directory
 
 echo "Changing root directory.. [3/3]"
 
-chroot "$target" "$shell" 
+chroot "$target" "$shell"
 
 exit 0
 

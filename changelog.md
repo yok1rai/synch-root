@@ -2,7 +2,7 @@
 
 ## Current Status
 
-**Latest Version:** `0.1.0`
+**Latest Version:** `0.1.1`
 
 **Latest Release:** `N/A`
 
@@ -21,5 +21,20 @@
 - N/A
 
 ### Fixed
+- N/A
+
+
+## [0.1.1] - 2026-02-01
+
+### Added
+
+- readme.md file is added for the first time
+
+### Changed
+
+- Error code for the third Prerequisite has changed from 99 to 1
+
+### Fixed
+
 - N/A
 
