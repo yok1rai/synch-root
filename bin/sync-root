@@ -10,6 +10,22 @@ pts="/dev/pts"
 shm="/dev/shm"
 run="/run"
 resolv="/etc/resolv.conf"
+skip_resolv=false
+
+if [[ "$2" == "-f" ]]; then
+    shell="/bin/bash"
+    skip_resolv=true
+fi
+
+if [[ -n "$3" && "$3" != "-f" ]]; then
+    echo "Error: Invalid argument"
+    exit 3
+fi
+
+if [[ "$3" == "-f" ]]; then
+    shell="/bin/bash"
+    skip_resolv=true
+fi
 
 # First Stage
 
@@ -98,15 +114,15 @@ fi
 mount --bind "$run" "$target/$run"
 echo "$run mounted [6/7]"
 
-case "$3" in
-    f)
+case "$skip_resolv" in
+    true)
         echo "Skipping $resolv.. you may not have any internet"
         echo "$resolv skipped [7/7]"
 
         ;;
 
-    "")
-        if [[ ! f "$resolv" ]]; then
+    false)
+        if [[ ! -f "$resolv" ]]; then
             echo "Error: $resolv not found"
             exit 2
         fi
@@ -115,10 +131,6 @@ case "$3" in
         echo "$resolv copied [7/7]"
 
         ;;
-
-    *)
-        echo "Error: Invalid argument"
-        exit 3
 esac
 
 # Third stage

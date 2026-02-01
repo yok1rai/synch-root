@@ -83,7 +83,8 @@ sudo sync-root ~/minimal-linux
 
 1. argument (required) : Path of the target Linux OS
 2. argument (optional) : Path of the initial shell in the target OS. By default, it's `/bin/bash`
-3. argument (`f`)     : skip bind-mounting `/etc/resolv.conf` if needed
+
+1. flag (`-f`)     : skip bind-mounting `/etc/resolv.conf` if needed
 
 ```bash
 # usage with only required arguments
@@ -92,8 +93,11 @@ sudo sync-root ~/minimal-linux
 # usage with second argument too
 sudo sync-root ~/minimal-linux /bin/zsh
 
+# usage wit -f flag
+sudo sync-root ~/minimal-linux -f
+
 # usage with all arguments
-sudo sync-root ~/minimal-linux /bin/zsh f
+sudo sync-root ~/minimal-linux /bin/zsh -f
 ```
 
 ⚠️ Note:

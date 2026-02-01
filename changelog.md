@@ -4,13 +4,34 @@
 
 \[[MAJOR](# "breaking changes"):[MINOR](# "new features, no break"):[PATCH](# "bug fixes, small tweaks"):[REVISION](# "very small fixes that no one asked for")\]
 
-**Latest Version:** `0.1.1.1`
+**Latest Version:** `0.2.0.0`
 
 **Latest Release:** `N/A`
 
 **Stable Release:** `N/A`
 
 ---
+
+## [`0.1.2.0`] - 2026-02-01
+
+### Added
+
+- default shell automatically set to `/bin/bash` when `-f` is used as the second argument
+- first flag changed to `-f` from `f`
+
+### Changed
+
+- Argument parsing improved, argument two and three are now correctly detect -f
+- skipping `/etc/resolv.conf` is not depend on third argument's case block anymore, instead it relies on a variable
+
+### Removed
+
+- N/A
+
+### Fixed
+
+- Script no longer fails when second argument is `-f`
+
 
 ## [`0.1.1.1`] - 2026-02-01
 
